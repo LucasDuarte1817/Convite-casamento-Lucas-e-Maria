@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucas & Maria | Nosso Casamento</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5f1e9;
+  color: #514d3e;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.cover {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  background:
+    radial-gradient(ellipse at center, #fffdf7 0%, #e9e2d3 100%);
+}
+
+.envelope {
+  max-width: 520px;
+  width: 100%;
+  padding: 65px 25px;
+  border: 1px solid #c5ad79;
+  outline: 1px solid #c5ad79;
+  outline-offset: 8px;
+  background: rgba(255,255,255,0.55);
+  animation: aparecer 1.5s ease;
+}
+
+.small {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #9a855b;
+}
+
+.names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(65px, 12vw, 95px);
+  color: #81764e;
+  margin: 25px 0;
+  font-weight: normal;
+}
+
+.and {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #b69a62;
+}
+
+.open-button {
+  background: #81764e;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  margin-top: 35px;
+  letter-spacing: 2px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.open-button:hover {
+  background: #5e583d;
+  transform: translateY(-3px);
+}
+
+.invitation {
+  display: none;
+  animation: aparecer 1.5s ease;
+}
+
+.invitation.show {
+  display: block;
+}
+
+section {
+  padding: 85px 22px;
+}
+
+.hero {
+  background: #ebe5d8;
+}
+
+.script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 60px;
+  color: #88764d;
+  margin: 20px 0;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 28px;
+  color: #756b4c;
+  margin: 20px 0;
+}
+
+p {
+  font-size: 12px;
+  line-height: 2.2;
+  font-weight: 300;
+}
+
+.gold-line {
+  width: 65px;
+  height: 1px;
+  background: #b69a62;
+  margin: 25px auto;
+}
+
+.date {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #88764d;
+  margin: 20px 0;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.time-box {
+  border: 1px solid #c5b58f;
+  padding: 17px 12px;
+  min-width: 68px;
+}
+
+.time-box strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: normal;
+  color: #82734e;
+}
+
+.time-box span {
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.location {
+  background: #ebe5d8;
+}
+
+.location-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #81764e;
+  margin: 20px 0;
+}
+
+.map-button, .rsvp-button {
+  display: inline-block;
+  padding: 16px 25px;
+  margin-top: 25px;
+  background: #81764e;
+  color: white;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.map-button:hover, .rsvp-button:hover {
+  background: #5e583d;
+}
+
+.footer {
+  padding: 65px 20px;
+  background: #81764e;
+  color: white;
+}
+
+.footer .script {
+  color: #fff4d9;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 480px) {
+  section { padding: 65px 20px; }
+  .script { font-size: 48px; }
+  h2 { font-size: 24px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cover" id="cover">
+  <div class="envelope">
+    <p class="small">Um convite especial</p>
+
+    <div class="names">
+      Lucas <span class="and">&</span> Maria
+    </div>
+
+    <div class="gold-line"></div>
+
+    <p>
+      COM ALEGRIA, CONVIDAMOS VOCÊ<br>
+      PARA CELEBRAR NOSSO AMOR
+    </p>
+
+    <button class="open-button" onclick="abrirConvite()">
+      ABRIR CONVITE
+    </button>
+  </div>
+</div>
+
+<main class="invitation" id="invitation">
+
+  <section class="hero">
+    <p class="small">O início de uma nova história</p>
+
+    <div class="script">Lucas & Maria</div>
+
+    <div class="gold-line"></div>
+
+    <h2>Vamos nos casar!</h2>
+
+    <p>
+      Existem momentos que se tornam eternos
+      quando compartilhados com pessoas especiais.
+      <br>
+      Com a bênção de Deus, queremos celebrar
+      esse dia tão importante ao seu lado.
+    </p>
+
+    <div class="date">01 . 11 . 2027</div>
+    <p>SEGUNDA-FEIRA · ÀS 15H30</p>
+  </section>
+
+  <section>
+    <p class="small">Está chegando o grande dia</p>
+    <h2>Contagem regressiva</h2>
+
+    <div class="gold-line"></div>
+
+    <div class="countdown">
+      <div class="time-box">
+        <strong id="days">000</strong>
+        <span>Dias</span>
+      </div>
+
+      <div class="time-box">
+        <strong id="hours">00</strong>
+        <span>Horas</span>
+      </div>
+
+      <div class="time-box">
+        <strong id="minutes">00</strong>
+        <span>Minutos</span>
+      </div>
+
+      <div class="time-box">
+        <strong id="seconds">00</strong>
+        <span>Segundos</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="location">
+    <p class="small">Onde será a celebração?</p>
+
+    <h2>Nosso grande dia</h2>
+
+    <div class="gold-line"></div>
+
+    <div class="location-name">
+      Fazenda Rancho Alto
+    </div>
+
+    <p>
+      BR-364<br>
+      Porto Velho – RO<br>
+      CEP 76808-000
+    </p>
+
+    <p style="margin-top:20px">
+      01 de novembro de 2027<br>
+      Às 15h30
+    </p>
+
+    <a class="map-button"
+       href="https://www.google.com/maps/search/?api=1&query=Fazenda+Rancho+Alto+BR-364+Porto+Velho+RO"
+       target="_blank">
+       COMO CHEGAR
+    </a>
+  </section>
+
+  <section>
+    <p class="small">Sua presença é especial</p>
+
+    <h2>Confirme sua presença</h2>
+
+    <div class="gold-line"></div>
+
+    <p>
+      Será uma alegria ter você conosco
+      neste momento tão especial.
+      <br>
+      Confirme sua presença pelo botão abaixo.
+    </p>
+
+    <a class="rsvp-button"
+       href="https://wa.me/?text=Ol%C3%A1!%20Gostaria%20de%20confirmar%20minha%20presen%C3%A7a%20no%20casamento%20de%20Lucas%20e%20Maria!"
+       target="_blank">
+       CONFIRMAR PRESENÇA
+    </a>
+  </section>
+
+  <footer class="footer">
+    <p class="small" style="color:#eee1bd">
+      Com amor
+    </p>
+
+    <div class="script">Lucas & Maria</div>
+
+    <p>
+      01 DE NOVEMBRO DE 2027
+    </p>
+
+    <div class="gold-line" style="background:#e3d2a9"></div>
+
+    <p>
+      O amor é o vínculo da perfeição.<br>
+      Colossenses 3:14
+    </p>
+  </footer>
+
+</main>
+
+<script>
+function abrirConvite() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('invitation').classList.add('show');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function atualizarContagem() {
+  const casamento = new Date('2027-11-01T15:30:00-04:00');
+  const agora = new Date();
+  const diferenca = casamento - agora;
+
+  if (diferenca <= 0) {
+    document.getElementById('days').textContent = '000';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('minutes').textContent = '00';
+    document.getElementById('seconds').textContent = '00';
+    return;
+  }
+
+  const dias = Math.floor(diferenca / 86400000);
+  const horas = Math.floor((diferenca % 86400000) / 3600000);
+  const minutos = Math.floor((diferenca % 3600000) / 60000);
+  const segundos = Math.floor((diferenca % 60000) / 1000);
+
+  document.getElementById('days').textContent = dias;
+  document.getElementById('hours').textContent = String(horas).padStart(2,'0');
+  document.getElementById('minutes').textContent = String(minutos).padStart(2,'0');
+  document.getElementById('seconds').textContent = String(segundos).padStart(2,'0');
+}
+
+atualizarContagem();
+setInterval(atualizarContagem, 1000);
+</script>
+
+</body>
+</html>
